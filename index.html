@@ -835,6 +835,60 @@ body.admin-direct-mode #decorLayer [data-tree-id]:hover{
   .physical-tree-visual .tree-stage,
   .physical-tree-visual #treeSvg{min-height:460px!important}
 }
+
+/* ===== ÁRVORE ONLINE INTERATIVA ===== */
+.online-tree-picks{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.online-tree-picks .pick{
+  min-width:150px;padding:9px 12px!important;border-radius:14px!important;
+  display:flex!important;align-items:center!important;gap:8px!important;
+  background:#fff!important;border:1.5px solid #d9e3d9!important;
+  color:#0d5b3c!important;text-align:left!important
+}
+.online-tree-picks .pick-icon{width:36px;height:36px;display:inline-flex;flex:0 0 36px}
+.online-tree-picks .pick-icon svg{width:100%;height:100%}
+.online-tree-picks .pick b{display:block;font-size:14px}
+.online-tree-picks .pick small{display:block;font-size:10px;color:#68756c;margin-top:2px;line-height:1.15}
+.online-tree-picks .leaf-pick.active{background:#edf6ef!important;border-color:#2E7D6D!important;box-shadow:0 0 0 3px rgba(46,125,109,.12)}
+.online-tree-picks .flower-pick.active{background:#fff6d9!important;border-color:#E4B629!important;box-shadow:0 0 0 3px rgba(244,196,48,.15)}
+.online-hint{
+  width:max-content;max-width:90%;margin:0 auto 8px;padding:7px 13px;
+  border-radius:999px;background:#fff;border:1px solid #dce3dc;
+  box-shadow:0 4px 12px rgba(0,0,0,.07);font-size:12px;color:#334c3e;text-align:center
+}
+#treeStage{cursor:crosshair}
+@media(max-width:650px){
+  .online-tree-picks{justify-content:stretch}
+  .online-tree-picks .pick{flex:1 1 100%}
+}
+
+.admin-danger-clear{
+  width:100%;
+  margin-top:14px;
+  padding:12px 14px;
+  border:1px solid #d59a9a;
+  border-radius:12px;
+  background:#fff1f1;
+  color:#8a2525;
+  font-weight:900;
+  cursor:pointer;
+}
+.admin-danger-clear:hover{
+  background:#fbe2e2;
+}
+.admin-danger-clear:disabled{
+  opacity:.6;
+  cursor:wait;
+}
+
+#adminModal.open{display:flex!important}
+#adminPanel{display:none!important}
+#adminPanel.show{display:block!important}
+#openAdminBtn{z-index:1400}
+
+#adminModal.open,#adminModal.show{display:flex!important}
+#adminPanel{display:none!important}
+#adminPanel.show{display:block!important}
+#adminLoginStatus{min-height:18px;margin-top:10px;font-weight:700}
 </style>
 </head>
 <body>
@@ -918,24 +972,59 @@ body.admin-direct-mode #decorLayer [data-tree-id]:hover{
 </section></div><div class="physical-tree-col physical-tree-visual"><section class="card tree-card" style="display:block!important"><div class="tree-visual-title">
 <span>🌳</span>
 <div>
-<strong>Veja como nossa árvore pode florescer</strong>
-<small>No espaço físico, ela será preenchida com as folhas e flores dos colaboradores.</small>
+<strong>Nossa árvore também é interativa no online</strong>
+<small>A dinâmica física continua, mas quem acessar o painel também pode participar por aqui.</small>
 </div>
 </div>
 <div class="tree-top">
 <div>
-<h2>O que você quer cultivar hoje?</h2>
-<p class="sub">Escolha uma folha, uma flor ou uma folha caída e depois siga a orientação.</p>
+<h2>Participe também pelo painel online</h2>
+<p class="sub">Escolha Folha ou Flor e depois clique em um ponto da árvore para colocar sua participação.</p>
 </div>
 <div class="tree-actions">
+<div class="online-tree-picks">
+<button aria-pressed="false" class="pick leaf-pick" id="pickLeaf" type="button">
+<span class="pick-icon">
+<svg aria-hidden="true" viewbox="0 0 64 64">
+<path d="M52 9C30 10 15 20 10 40c8 9 21 11 31 4 10-7 13-20 11-35Z" fill="#8CBFA7"></path>
+<path d="M13 44C24 34 34 25 49 14" fill="none" stroke="#2E7D6D" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</span>
+<span><b>Folha</b><small>Autocuidado</small></span>
+</button>
+<button aria-pressed="false" class="pick flower-pick" id="pickFlower" type="button">
+<span class="pick-icon">
+<svg aria-hidden="true" viewbox="0 0 64 64">
+<g transform="translate(32 29)">
+<ellipse cx="0" cy="-15" fill="#F6D44A" rx="8" ry="14"></ellipse>
+<ellipse cx="13" cy="-7" fill="#F7D85B" rx="8" ry="14" transform="rotate(60 13 -7)"></ellipse>
+<ellipse cx="13" cy="8" fill="#F4C430" rx="8" ry="14" transform="rotate(120 13 8)"></ellipse>
+<ellipse cx="0" cy="15" fill="#F7D85B" rx="8" ry="14"></ellipse>
+<ellipse cx="-13" cy="8" fill="#F4C430" rx="8" ry="14" transform="rotate(60 -13 8)"></ellipse>
+<ellipse cx="-13" cy="-7" fill="#F7D85B" rx="8" ry="14" transform="rotate(120 -13 -7)"></ellipse>
+<circle fill="#8B5A2B" r="9"></circle>
+<circle fill="#A56D32" r="5"></circle>
+</g>
+</svg>
+</span>
+<span><b>Flor</b><small>Hábito deixado de lado</small></span>
+</button>
+</div>
 </div>
 </div>
 <div class="legend">
-<div class="legend-box"><b>🌿 FOLHA = AUTOCUIDADO COMIGO</b><p>Pense em algo que você faz ou pode fazer para cuidar da sua saúde mental e emocional. Escolha uma folha verde e coloque na árvore.</p></div>
-<div class="legend-box flower"><b>🌻 FLOR = CUIDADO COM O OUTRO</b><p>Pense em uma atitude de acolhimento, respeito, empatia ou apoio que você pode oferecer a alguém. Escolha uma flor amarela e coloque na árvore.</p></div>
+<div class="legend-box">
+<b>🌿 FOLHA = AUTOCUIDADO</b>
+<p>Escolha Folha para representar algo que você faz — ou quer começar a fazer — para cuidar melhor de você.</p>
 </div>
-<div aria-label="Árvore interativa para receber folhas e flores" class="tree-stage" id="treeStage">
-
+<div class="legend-box flower">
+<b>🌻 FLOR = HÁBITO QUE VOCÊ DEIXOU DE LADO</b>
+<p>Escolha Flor para representar um hábito, cobrança ou comportamento que você decidiu deixar para trás.</p>
+</div>
+</div>
+<div class="tree-hint online-hint" id="treeHint">
+      1. Escolha <strong>Folha</strong> ou <strong>Flor</strong> • 2. Clique na árvore
+    </div><div aria-label="Árvore interativa para receber folhas e flores" class="tree-stage" id="treeStage">
 <svg aria-label="Árvore sem folhas para participação coletiva" id="treeSvg" role="img" viewbox="0 0 820 760">
 <defs>
 <filter height="140%" id="shadow" width="140%" x="-20%" y="-20%">
@@ -952,9 +1041,9 @@ body.admin-direct-mode #decorLayer [data-tree-id]:hover{
 </div>
 <div class="tree-count"><div class="pill">🌿 <span id="leafCount">0</span> folhas</div><div class="pill yellow">🌻 <span id="flowerCount">0</span> flores</div><div class="pill">💛 <span id="totalCount">0</span> participações</div></div>
 <div class="how">
-<div class="step"><strong>1. ESCOLHA</strong><p>Selecione “Folha” para autocuidado ou “Flor” para cuidado com o outro.</p></div>
-<div class="step"><strong>2. COLOQUE NA ÁRVORE</strong><p>Clique no ponto da árvore onde você quer colocar seu elemento.</p></div>
-<div class="step"><strong>3. VEJA FLORESCER</strong><p>Sua participação aparece junto com as contribuições de todo o time.</p></div>
+<div class="step"><strong>1. ESCOLHA</strong><p>Folha para autocuidado ou Flor para um hábito que você deixou de lado.</p></div>
+<div class="step"><strong>2. COLOQUE NA ÁRVORE</strong><p>Clique no ponto da árvore onde você quer colocar o elemento.</p></div>
+<div class="step"><strong>3. VEJA FLORESCER</strong><p>A participação fica registrada e aparece para todos que acessarem o painel.</p></div>
 </div>
 <div class="care-wall-display-below">
 </div>
@@ -1137,7 +1226,9 @@ body.admin-direct-mode #decorLayer [data-tree-id]:hover{
 <h3 id="adminEditorTitle">Gerenciar conteúdo</h3>
 <div class="admin-editor-list" id="adminEditorList"></div>
 </div>
-</section>
+<button class="admin-danger-clear" id="adminClearAllBtn" type="button">
+      🧹 Limpar painel para novos testes
+    </button></section>
 <div aria-hidden="true" class="direct-modal" id="directEditModal">
 <div class="direct-box">
 <h3 id="directEditTitle">Editar conteúdo</h3>
@@ -1248,6 +1339,7 @@ const ADMIN_UIDS = new Set([
 
 let currentUser = null;
 let isAdmin = false;
+let adminLoginInProgress = false;
 let realtimeStarted = false;
 
 let treeCache = {};
@@ -1291,21 +1383,7 @@ function firebaseMessage(err, fallback){
 /* =========================
    AUTENTICAÇÃO — padrão Movimento
    ========================= */
-function setAdminUI(){
-  $("adminbar")?.classList.toggle("show",isAdmin);
-  $("adminPanel")?.classList.toggle("show",isAdmin);
-  if($("openAdminBtn")){
-    $("openAdminBtn").textContent=isAdmin ? "🔓 Área da CIPAA aberta" : "🔐 Área da CIPAA";
-  }
-  if($("adminStatus")){
-    $("adminStatus").textContent=isAdmin
-      ? `Administrador conectado • UID ${currentUser?.uid||""}`
-      : "";
-  }
-  renderTree();
-  renderActionPosts();
-  renderCareWall();
-}
+
 
 function startRealtimeOnce(){
   if(realtimeStarted) return;
@@ -1348,6 +1426,13 @@ onAuthStateChanged(auth,user=>{
     currentUser=null;
     isAdmin=false;
     setAdminUI();
+
+    // Durante o login por e-mail/senha não inicia outra sessão anônima em paralelo.
+    if(adminLoginInProgress){
+      setStatus("Validando administrador…","");
+      return;
+    }
+
     setStatus("Conectando ao painel…","");
     signInAnonymously(auth).catch(err=>{
       console.error(err);
@@ -1515,7 +1600,9 @@ $("treeSvg")?.addEventListener("click",async e=>{
   selectedTreeType=null;
   $("pickLeaf")?.classList.remove("active");
   $("pickFlower")?.classList.remove("active");
-  if($("treeHint")) $("treeHint").textContent="1. Escolha folha ou flor • 2. Clique na árvore";
+  $("pickLeaf")?.setAttribute("aria-pressed","false");
+  $("pickFlower")?.setAttribute("aria-pressed","false");
+  if($("treeHint")) $("treeHint").innerHTML='1. Escolha <strong>Folha</strong> ou <strong>Flor</strong> • 2. Clique na árvore';
 
   try{
     await push(ref(db,`${BASE}/tree`),{
@@ -2095,54 +2182,209 @@ document.querySelectorAll("[data-care-kind]").forEach(btn=>{
   });
 });
 
+
 /* =========================
-   ÁREA DA CIPAA
+   ÁREA DA CIPAA — CORRIGIDA
    ========================= */
+function setAdminUI(){
+  const panel=$("adminPanel");
+  if(panel) panel.classList.toggle("show",isAdmin);
+
+  const btn=$("openAdminBtn");
+  if(btn){
+    btn.textContent=isAdmin ? "🔓 Área da CIPAA aberta" : "🔐 Área da CIPAA";
+    btn.classList.toggle("active",isAdmin);
+  }
+
+  const status=$("adminStatus");
+  if(status){
+    status.textContent=isAdmin ? `Administrador autenticado • UID ${currentUser?.uid||""}` : "";
+  }
+
+  try{renderTree();}catch(e){}
+  try{renderActionPosts();}catch(e){}
+  try{renderCareWall();}catch(e){}
+  try{if(isAdmin) renderMailInbox();}catch(e){}
+}
+
+async function restoreAnonymousUser(){
+  try{
+    adminLoginInProgress=false;
+    const cred=await signInAnonymously(auth);
+    currentUser=cred.user;
+    isAdmin=false;
+    setAdminUI();
+    setStatus("Painel sincronizado","ok");
+  }catch(err){
+    console.error("Falha ao restaurar sessão anônima:",err);
+    setStatus("Não foi possível conectar","bad");
+  }
+}
+
 $("openAdminBtn")?.addEventListener("click",()=>{
   if(isAdmin){
     $("adminPanel")?.classList.toggle("show");
   }else{
+    if($("adminLoginStatus")) $("adminLoginStatus").textContent="";
     $("adminModal")?.classList.add("open");
+    $("adminModal")?.classList.add("show");
+    setTimeout(()=>$("adminEmail")?.focus(),50);
   }
 });
-$("adminCancelBtn")?.addEventListener("click",()=>$("adminModal")?.classList.remove("open"));
+
+$("adminCancelBtn")?.addEventListener("click",()=>{
+  $("adminModal")?.classList.remove("open");
+  $("adminModal")?.classList.remove("show");
+  if($("adminPassword")) $("adminPassword").value="";
+});
 
 $("adminLoginBtn")?.addEventListener("click",async()=>{
   const email=($("adminEmail")?.value||"").trim();
   const password=$("adminPassword")?.value||"";
-  if(!email||!password){toast("Informe e-mail e senha.");return;}
-  const btn=$("adminLoginBtn"),old=btn.innerHTML;
-  btn.disabled=true;btn.innerHTML="ENTRANDO...";
+  const status=$("adminLoginStatus");
+  const btn=$("adminLoginBtn");
+
+  if(!email||!password){
+    if(status) status.textContent="Informe e-mail e senha.";
+    return;
+  }
+
+  const old=btn.innerHTML;
+  btn.disabled=true;
+  btn.innerHTML="ENTRANDO...";
+  adminLoginInProgress=true;
+
   try{
+    // Não fazemos signOut antes do login. Isso evita que o observer
+    // crie uma nova sessão anônima no meio da autenticação administrativa.
     const cred=await signInWithEmailAndPassword(auth,email,password);
-    if(!ADMIN_UIDS.has(cred.user.uid)){
+    currentUser=cred.user;
+    isAdmin=ADMIN_UIDS.has(cred.user.uid);
+
+    if(!isAdmin){
+      if(status) status.textContent=`Esta conta não possui permissão de administrador. UID: ${cred.user.uid}`;
       await signOut(auth);
-      toast("Este usuário não está autorizado como administrador.");
+      adminLoginInProgress=false;
+      await restoreAnonymousUser();
       return;
     }
+
+    if(status) status.textContent="Administrador autenticado com sucesso.";
     $("adminModal")?.classList.remove("open");
+    $("adminModal")?.classList.remove("show");
+    if($("adminPassword")) $("adminPassword").value="";
+    setAdminUI();
+    setStatus("Administrador conectado","ok");
     toast("Área da CIPAA aberta.");
   }catch(err){
-    console.error(err);
-    if($("adminLoginStatus")) $("adminLoginStatus").textContent="Não foi possível entrar. Confira e-mail e senha.";
+    console.error("Login ADM:",err);
+    isAdmin=false;
+
+    const code=String(err?.code||"");
+    if(status){
+      if(code.includes("invalid-credential") || code.includes("wrong-password")){
+        status.textContent="E-mail ou senha incorretos.";
+      }else if(code.includes("user-not-found")){
+        status.textContent="Usuário administrador não encontrado no Firebase Authentication.";
+      }else if(code.includes("operation-not-allowed")){
+        status.textContent="Login por e-mail e senha está desativado no Firebase Authentication.";
+      }else if(code.includes("too-many-requests")){
+        status.textContent="Muitas tentativas de login. Aguarde alguns minutos e tente novamente.";
+      }else if(code.includes("network-request-failed")){
+        status.textContent="Falha de conexão com o Firebase. Verifique a internet e tente novamente.";
+      }else{
+        status.textContent=`Não foi possível entrar (${code || "erro desconhecido"}).`;
+      }
+    }
+
+    try{
+      adminLoginInProgress=false;
+      await restoreAnonymousUser();
+    }catch(_){}
+    return;
   }finally{
-    btn.disabled=false;btn.innerHTML=old;
+    adminLoginInProgress=false;
+    btn.disabled=false;
+    btn.innerHTML=old;
   }
 });
 
 $("adminLogoutBtn")?.addEventListener("click",async()=>{
   try{await signOut(auth);}catch(err){console.error(err);}
-  isAdmin=false;currentUser=null;setAdminUI();
-  await signInAnonymously(auth);
+  currentUser=null;
+  isAdmin=false;
+  setAdminUI();
+  await restoreAnonymousUser();
   toast("Administrador desconectado.");
 });
 
-// Botões administrativos mantidos no layout.
-$("adminTreeBtn")?.addEventListener("click",()=>toast("Clique diretamente em uma folha ou flor da árvore para editar, mover ou excluir."));
-$("adminWallBtn")?.addEventListener("click",()=>toast("Use Editar/Excluir diretamente nas mensagens e post-its."));
-$("adminDirectBtn")?.addEventListener("click",()=>{
-  adminDirectMode=!adminDirectMode;
-  toast(adminDirectMode ? "Edição direta ativada." : "Edição direta desativada.");
+$("adminOpenMailBtn")?.addEventListener("click",()=>{
+  if(!isAdmin){toast("Apenas administradores podem acessar o Correio.");return;}
+  $("mailAdmin")?.classList.add("show");
+  renderMailInbox();
+});
+
+$("adminExportMailBtn")?.addEventListener("click",()=>{
+  if(!isAdmin){toast("Apenas administradores podem exportar.");return;}
+  exportMail();
+});
+
+$("adminPrintMailBtn")?.addEventListener("click",()=>{
+  if(!isAdmin){toast("Apenas administradores podem imprimir.");return;}
+  $("mailAdmin")?.classList.add("show");
+  renderMailInbox();
+  window.print();
+});
+
+$("adminTreeBtn")?.addEventListener("click",()=>{
+  if(!isAdmin){toast("Apenas administradores podem editar a árvore.");return;}
+  toast("Clique diretamente em uma folha ou flor da árvore para editar, mover ou excluir.");
+});
+
+$("adminWallBtn")?.addEventListener("click",()=>{
+  if(!isAdmin){toast("Apenas administradores podem editar.");return;}
+  toast("Use os botões Editar/Excluir exibidos nos post-its e mensagens.");
+});
+
+$("adminClearAllBtn")?.addEventListener("click",async()=>{
+  if(!isAdmin){toast("Apenas administradores podem limpar o painel.");return;}
+
+  if(!confirm("ATENÇÃO: isso excluirá TODAS as participações de teste. Deseja continuar?")) return;
+  if(!confirm("Confirme novamente: deseja limpar todos os dados de teste agora?")) return;
+
+  const btn=$("adminClearAllBtn");
+  const old=btn.innerHTML;
+  btn.disabled=true;
+  btn.innerHTML="LIMPANDO...";
+
+  try{
+    await Promise.all([
+      remove(ref(db,`${BASE}/tree`)),
+      remove(ref(db,`${BASE}/actionPosts`)),
+      remove(ref(db,`${BASE}/careWall`)),
+      remove(ref(db,`${BASE}/mail`)),
+      remove(ref(db,`${BASE}/letGo`)),
+      remove(ref(db,`${BASE}/practice`))
+    ]);
+
+    treeCache={};
+    actionPostsCache={};
+    careWallCache={};
+    mailCache={};
+
+    renderTree();
+    renderActionPosts();
+    renderCareWall();
+    renderMailInbox();
+
+    alert("Painel limpo com sucesso.");
+    toast("Painel pronto para novos testes. ✅");
+  }catch(err){
+    firebaseMessage(err,"Não foi possível limpar todos os dados.");
+  }finally{
+    btn.disabled=false;
+    btn.innerHTML=old;
+  }
 });
 
 /* Exposição mínima apenas para diagnóstico no navegador */
