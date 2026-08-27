@@ -952,57 +952,6 @@ body.admin-direct-mode #decorLayer [data-tree-id]:hover{
 @media(max-width:700px){
   .tip-grid{grid-template-columns:1fr}
 }
-
-/* ===== CORREIO AMARELO — TEXTO ACOLHEDOR ===== */
-.mail-welcome-copy{
-  margin-top:10px;
-  max-width:980px;
-  color:#405047;
-  font-size:14px;
-  line-height:1.55;
-}
-.mail-welcome-copy p{margin:7px 0}
-.mail-welcome-copy .mail-lead{
-  color:#0d5b3c;
-  font-size:15px;
-  line-height:1.45;
-}
-.mail-ideas{
-  margin:12px 0;
-  padding:13px 15px;
-  border-radius:14px;
-  background:#fff8dc;
-  border:1px solid #f2d47a;
-}
-.mail-ideas-title{
-  font-weight:900;
-  color:#0d5b3c;
-  margin-bottom:8px;
-}
-.mail-ideas-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:7px 18px;
-}
-.mail-ideas-grid span{
-  display:block;
-  padding:6px 9px;
-  border-radius:10px;
-  background:rgba(255,255,255,.72);
-}
-.mail-how{
-  padding:10px 12px;
-  border-left:4px solid #F5B915;
-  background:#fffdf5;
-  border-radius:8px;
-}
-.mail-closing{
-  color:#0d5b3c;
-  font-weight:800;
-}
-@media(max-width:700px){
-  .mail-ideas-grid{grid-template-columns:1fr}
-}
 </style>
 </head>
 <body>
@@ -1265,23 +1214,9 @@ body.admin-direct-mode #decorLayer [data-tree-id]:hover{
 </section></div><div class="organized-cell"><section class="card public-board-shell"><h2>📝 Postagens do Mural do Cuidado</h2><p class="sub">Mensagens e experiências compartilhadas para todos que acessarem o painel.</p><div class="care-wall-board" id="careWallBoard">
 <div class="care-wall-empty">O mural está esperando as primeiras mensagens. 💛</div>
 </div></section></div></div><div class="organized-row row-full"><div class="organized-cell"><section class="card">
-<div class="mailbox"><div aria-hidden="true" class="mail-icon"></div><div><h2>💛 Correio Amarelo</h2><div class="mail-explain">
-
-
-</div><div class="mail-welcome-copy">
-<p class="mail-lead"><strong>Cuidar da saúde mental também significa fortalecer laços, valorizar pessoas e demonstrar que ninguém está sozinho.</strong></p>
-<p>Por isso, criamos este espaço para que você possa enviar uma mensagem especial para alguém que marcou positivamente sua trajetória, esteve presente em um momento importante, ofereceu apoio, acolhimento ou simplesmente merece ouvir palavras gentis.</p>
-<div class="mail-ideas">
-<div class="mail-ideas-title">Você pode escrever:</div>
-<div class="mail-ideas-grid">
-<span>✨ Um agradecimento sincero</span>
-<span>✨ Uma mensagem de incentivo</span>
-<span>✨ Um reconhecimento profissional ou pessoal</span>
-<span>✨ Um gesto de apoio e carinho</span>
-</div>
-</div>
-<p class="mail-how"><strong>Escolha se deseja se identificar ou permanecer anônimo, informe quem receberá a mensagem e deixe seu bilhete.</strong></p>
-<p class="mail-closing">Porque uma palavra de cuidado, muitas vezes, chega exatamente quando alguém mais precisa. 💛</p>
+<div class="mailbox"><div aria-hidden="true" class="mail-icon"></div><div><h2>💛 Correio Amarelo</h2><p class="sub">Tem alguém que fez diferença no seu dia, te ajudou, te acolheu ou simplesmente merece receber uma mensagem especial?</p><div class="mail-explain">
+<p>Use este espaço para enviar um bilhete de <strong>carinho, agradecimento, reconhecimento ou apoio</strong>.</p>
+<p>Você pode escolher enviar <strong>de forma anônima</strong> ou <strong>se identificar</strong>. Depois, informe para quem é o bilhete e escreva sua mensagem.</p>
 </div></div></div>
 <div aria-label="Como você quer enviar a mensagem?" class="identity-choice" role="radiogroup">
 <label><input checked="checked" name="mailIdentity" type="radio" value="anonymous"/> Enviar de forma anônima</label>
@@ -1291,7 +1226,7 @@ body.admin-direct-mode #decorLayer [data-tree-id]:hover{
 <label for="mailSenderName">Seu nome</label>
 <input id="mailSenderName" maxlength="80" placeholder="Digite seu nome"/>
 </div>
-<div class="field"><label for="recipient">Para quem é o bilhete?</label><input id="recipient" maxlength="80" placeholder="Digite o nome de quem receberá a mensagem"/></div>
+<div class="field"><label for="recipient">Para quem é o bilhete?</label><input id="recipient" maxlength="80" placeholder="Nome da pessoa"/></div>
 <div class="field"><label for="mailText">Escreva sua mensagem</label><textarea id="mailText" maxlength="500" placeholder="Deixe aqui uma mensagem de carinho, agradecimento, reconhecimento ou apoio..."></textarea></div>
 <button class="action" id="sendMailBtn" type="button">💌 ENVIAR MEU BILHETE</button>
 <div class="success" id="mailSuccess">Mensagem guardada com carinho. 💛</div>
