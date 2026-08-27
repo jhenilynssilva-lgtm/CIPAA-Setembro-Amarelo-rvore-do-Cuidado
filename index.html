@@ -889,6 +889,120 @@ body.admin-direct-mode #decorLayer [data-tree-id]:hover{
 #adminPanel{display:none!important}
 #adminPanel.show{display:block!important}
 #adminLoginStatus{min-height:18px;margin-top:10px;font-weight:700}
+
+.mail-explain{margin:10px 0 14px;padding:12px 14px;border-radius:14px;background:#fff8da;border:1px solid #efd67a;color:#4A4A4A;line-height:1.5}
+.mail-explain p{margin:0}.mail-explain p+p{margin-top:7px}
+.mail-privacy-note{margin-top:10px;padding:10px 12px;border-radius:12px;background:#eef6ef;color:#245a3a;line-height:1.45}
+
+/* ===== ÁRVORE ONLINE — VERSÃO SIMPLIFICADA ===== */
+.physical-tree-visual .tree-card .legend{display:none!important}
+.physical-tree-visual .tree-stage{margin-top:12px!important}
+
+/* ===== ABA EXPLICATIVA MAIS RICA ===== */
+.physical-tree-info{padding:24px!important}
+.physical-tree-grid{gap:18px!important}
+.physical-tree-item{padding:20px!important}
+.example-chips{gap:7px!important}
+.example-chips span{
+  padding:7px 10px!important;
+  font-size:12px!important;
+  background:#fff!important;
+}
+.tree-reflection-tips{
+  margin-top:16px;
+  padding:14px;
+  border-radius:16px;
+  background:#fffdf5;
+  border:1px dashed #d9d7bf;
+}
+.tip-head{font-weight:900;color:#0d5b3c;margin-bottom:10px}
+.tip-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.tip-grid>div{
+  padding:10px 12px;
+  border-radius:12px;
+  background:#fff;
+  border:1px solid #e2e7df;
+}
+.tip-grid strong{display:block;color:#2E7D6D;margin-bottom:4px}
+.tip-grid span{font-size:12px;line-height:1.4;color:#4A4A4A}
+
+/* ===== ÁRVORE ONLINE MAIOR ===== */
+.physical-tree-composition{
+  grid-template-columns:minmax(0,.9fr) minmax(520px,1.15fr)!important;
+}
+.physical-tree-visual .tree-stage{
+  min-height:680px!important;
+}
+.physical-tree-visual #treeSvg{
+  min-height:680px!important;
+}
+.physical-tree-visual > section{
+  padding:20px!important;
+}
+
+@media(max-width:1150px){
+  .physical-tree-composition{grid-template-columns:1fr!important}
+  .physical-tree-visual .tree-stage,
+  .physical-tree-visual #treeSvg{min-height:600px!important}
+}
+@media(max-width:700px){
+  .tip-grid{grid-template-columns:1fr}
+}
+
+/* ===== CORREIO AMARELO — TEXTO ACOLHEDOR ===== */
+.mail-welcome-copy{
+  margin-top:10px;
+  max-width:980px;
+  color:#405047;
+  font-size:14px;
+  line-height:1.55;
+}
+.mail-welcome-copy p{margin:7px 0}
+.mail-welcome-copy .mail-lead{
+  color:#0d5b3c;
+  font-size:15px;
+  line-height:1.45;
+}
+.mail-ideas{
+  margin:12px 0;
+  padding:13px 15px;
+  border-radius:14px;
+  background:#fff8dc;
+  border:1px solid #f2d47a;
+}
+.mail-ideas-title{
+  font-weight:900;
+  color:#0d5b3c;
+  margin-bottom:8px;
+}
+.mail-ideas-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px 18px;
+}
+.mail-ideas-grid span{
+  display:block;
+  padding:6px 9px;
+  border-radius:10px;
+  background:rgba(255,255,255,.72);
+}
+.mail-how{
+  padding:10px 12px;
+  border-left:4px solid #F5B915;
+  background:#fffdf5;
+  border-radius:8px;
+}
+.mail-closing{
+  color:#0d5b3c;
+  font-weight:800;
+}
+@media(max-width:700px){
+  .mail-ideas-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -922,16 +1036,9 @@ body.admin-direct-mode #decorLayer [data-tree-id]:hover{
 </div>
 <div>
 <h3>🌿 FOLHA = AUTOCUIDADO</h3>
-<p>Pense em algo que você faz — ou pode começar a fazer — para cuidar melhor de você, da sua saúde mental e do seu bem-estar.</p>
+<p>Pense em algo simples e possível que ajude você a cuidar melhor de si no dia a dia.</p>
 <div class="examples-title">Exemplos</div>
-<div class="example-chips">
-<span>Fazer uma pausa de verdade</span>
-<span>Respeitar seus limites</span>
-<span>Pedir ajuda quando precisar</span>
-<span>Desconectar um pouco das telas</span>
-<span>Ouvir uma música que faz bem</span>
-<span>Movimentar o corpo</span>
-</div>
+<div class="example-chips"><span>Fazer uma pausa de verdade</span><span>Respeitar seus limites</span><span>Pedir ajuda quando precisar</span><span>Desconectar um pouco das telas</span><span>Ouvir uma música que faz bem</span><span>Movimentar o corpo</span><span>Dormir melhor</span><span>Reservar alguns minutos para si</span><span>Dizer “não” quando for necessário</span><span>Conversar com alguém de confiança</span></div>
 <div class="physical-step">Pegue uma <strong>folha verde</strong>, escreva seu autocuidado e coloque na árvore.</div>
 </div>
 </div>
@@ -952,21 +1059,20 @@ body.admin-direct-mode #decorLayer [data-tree-id]:hover{
 </div>
 <div>
 <h3>🌻 FLOR = HÁBITOS QUE VOCÊ DEIXOU DE LADO</h3>
-<p>Pense em algo que você percebeu que não precisa mais carregar ou repetir na sua rotina e que pode deixar para trás para cuidar melhor de si.</p>
+<p>Pense em um hábito, cobrança ou comportamento que você percebeu que já pode deixar para trás.</p>
 <div class="examples-title">Exemplos</div>
-<div class="example-chips">
-<span>Me cobrar o tempo todo</span>
-<span>Sentir culpa por descansar</span>
-<span>Me comparar com outras pessoas</span>
-<span>Guardar tudo para mim</span>
-<span>Dizer “sim” quando queria dizer “não”</span>
-<span>Ignorar quando preciso de uma pausa</span>
-</div>
+<div class="example-chips"><span>Me cobrar o tempo todo</span><span>Sentir culpa por descansar</span><span>Me comparar com outras pessoas</span><span>Guardar tudo para mim</span><span>Dizer “sim” quando queria dizer “não”</span><span>Ignorar quando preciso de uma pausa</span><span>Querer dar conta de tudo sozinho</span><span>Levar preocupações do trabalho para casa</span><span>Adiar conversas importantes</span><span>Ser tão duro comigo mesmo</span></div>
 <div class="physical-step">Pegue uma <strong>flor amarela</strong>, escreva o hábito que quer deixar de lado e coloque na árvore.</div>
 </div>
 </div>
 </div>
-<div class="physical-tree-footer">
+<div class="tree-reflection-tips">
+<div class="tip-head">💡 Se estiver em dúvida, pense assim:</div>
+<div class="tip-grid">
+<div><strong>Para a folha:</strong><span>“O que eu posso fazer por mim que me faria bem?”</span></div>
+<div><strong>Para a flor:</strong><span>“O que eu posso parar de carregar porque já não me faz bem?”</span></div>
+</div>
+</div><div class="physical-tree-footer">
 <strong>💛 A ideia é simples:</strong> cultivar o que nos faz bem e reconhecer o que já podemos deixar para trás.
   </div>
 </section></div><div class="physical-tree-col physical-tree-visual"><section class="card tree-card" style="display:block!important"><div class="tree-visual-title">
@@ -1012,19 +1118,7 @@ body.admin-direct-mode #decorLayer [data-tree-id]:hover{
 </div>
 </div>
 </div>
-<div class="legend">
-<div class="legend-box">
-<b>🌿 FOLHA = AUTOCUIDADO</b>
-<p>Escolha Folha para representar algo que você faz — ou quer começar a fazer — para cuidar melhor de você.</p>
-</div>
-<div class="legend-box flower">
-<b>🌻 FLOR = HÁBITO QUE VOCÊ DEIXOU DE LADO</b>
-<p>Escolha Flor para representar um hábito, cobrança ou comportamento que você decidiu deixar para trás.</p>
-</div>
-</div>
-<div class="tree-hint online-hint" id="treeHint">
-      1. Escolha <strong>Folha</strong> ou <strong>Flor</strong> • 2. Clique na árvore
-    </div><div aria-label="Árvore interativa para receber folhas e flores" class="tree-stage" id="treeStage">
+<div class="tree-hint online-hint" id="treeHint">1. Escolha <strong>Folha</strong> ou <strong>Flor</strong> • 2. Clique na árvore</div><div aria-label="Árvore interativa para receber folhas e flores" class="tree-stage" id="treeStage">
 <svg aria-label="Árvore sem folhas para participação coletiva" id="treeSvg" role="img" viewbox="0 0 820 760">
 <defs>
 <filter height="140%" id="shadow" width="140%" x="-20%" y="-20%">
@@ -1171,20 +1265,42 @@ body.admin-direct-mode #decorLayer [data-tree-id]:hover{
 </section></div><div class="organized-cell"><section class="card public-board-shell"><h2>📝 Postagens do Mural do Cuidado</h2><p class="sub">Mensagens e experiências compartilhadas para todos que acessarem o painel.</p><div class="care-wall-board" id="careWallBoard">
 <div class="care-wall-empty">O mural está esperando as primeiras mensagens. 💛</div>
 </div></section></div></div><div class="organized-row row-full"><div class="organized-cell"><section class="card">
-<div class="mailbox"><div aria-hidden="true" class="mail-icon"></div><div><h2>Correio Amarelo ♡</h2><p class="sub">Tem alguém que tornou seus dias melhores? Conte para essa pessoa.</p></div></div>
+<div class="mailbox"><div aria-hidden="true" class="mail-icon"></div><div><h2>💛 Correio Amarelo</h2><div class="mail-explain">
+
+
+</div><div class="mail-welcome-copy">
+<p class="mail-lead"><strong>Cuidar da saúde mental também significa fortalecer laços, valorizar pessoas e demonstrar que ninguém está sozinho.</strong></p>
+<p>Por isso, criamos este espaço para que você possa enviar uma mensagem especial para alguém que marcou positivamente sua trajetória, esteve presente em um momento importante, ofereceu apoio, acolhimento ou simplesmente merece ouvir palavras gentis.</p>
+<div class="mail-ideas">
+<div class="mail-ideas-title">Você pode escrever:</div>
+<div class="mail-ideas-grid">
+<span>✨ Um agradecimento sincero</span>
+<span>✨ Uma mensagem de incentivo</span>
+<span>✨ Um reconhecimento profissional ou pessoal</span>
+<span>✨ Um gesto de apoio e carinho</span>
+</div>
+</div>
+<p class="mail-how"><strong>Escolha se deseja se identificar ou permanecer anônimo, informe quem receberá a mensagem e deixe seu bilhete.</strong></p>
+<p class="mail-closing">Porque uma palavra de cuidado, muitas vezes, chega exatamente quando alguém mais precisa. 💛</p>
+</div></div></div>
 <div aria-label="Como você quer enviar a mensagem?" class="identity-choice" role="radiogroup">
-<label><input checked="checked" name="mailIdentity" type="radio" value="anonymous"/> Prefiro anônimo</label>
+<label><input checked="checked" name="mailIdentity" type="radio" value="anonymous"/> Enviar de forma anônima</label>
 <label><input name="mailIdentity" type="radio" value="named"/> Quero me identificar</label>
 </div>
 <div class="field mail-sender-name-row" id="mailSenderNameRow" style="display:none !important">
 <label for="mailSenderName">Seu nome</label>
 <input id="mailSenderName" maxlength="80" placeholder="Digite seu nome"/>
 </div>
-<div class="field"><label for="recipient">Para quem? <span class="fine">(opcional)</span></label><input id="recipient" maxlength="80" placeholder="Nome da pessoa"/></div>
-<div class="field"><label for="mailText">Sua mensagem</label><textarea id="mailText" maxlength="500" placeholder="Escreva um bilhete de reconhecimento, agradecimento ou carinho..."></textarea></div>
-<button class="action" id="sendMailBtn" type="button">💌 ENVIAR AO CORREIO AMARELO</button>
+<div class="field"><label for="recipient">Para quem é o bilhete?</label><input id="recipient" maxlength="80" placeholder="Digite o nome de quem receberá a mensagem"/></div>
+<div class="field"><label for="mailText">Escreva sua mensagem</label><textarea id="mailText" maxlength="500" placeholder="Deixe aqui uma mensagem de carinho, agradecimento, reconhecimento ou apoio..."></textarea></div>
+<button class="action" id="sendMailBtn" type="button">💌 ENVIAR MEU BILHETE</button>
 <div class="success" id="mailSuccess">Mensagem guardada com carinho. 💛</div>
-<p class="fine">As mensagens não aparecem publicamente. Se você optar por se identificar, seu nome será enviado junto com a mensagem somente para a Área da CIPAA.</p>
+<p class="fine">
+<div class="mail-privacy-note">
+          💛 <strong>Fique tranquilo:</strong> seu bilhete não ficará público no painel.
+          A mensagem será recebida pela CIPAA e entregue à pessoa que você indicou.
+        </div>
+</p>
 <div class="adminbar" id="adminbar">
 <button class="action secondary" id="openMailBtn" type="button">📬 Abrir caixa da CIPAA</button>
 <button class="action secondary" id="exportMailBtn" type="button">Exportar correio (CSV)</button>
@@ -1346,7 +1462,6 @@ let treeCache = {};
 let actionPostsCache = {};
 let careWallCache = {};
 let mailCache = {};
-let letGoCache = {};
 
 let selectedTreeType = null;
 let selectedAction = "";
@@ -1409,10 +1524,6 @@ function startRealtimeOnce(){
     if(isAdmin) renderMailInbox();
   },err=>console.error("Correio:",err));
 
-  onValue(ref(db,`${BASE}/letGo`),snap=>{
-    letGoCache=snap.val()||{};
-    renderFallenLeaves();
-  },err=>firebaseMessage(err,"Não foi possível carregar as folhas deixadas para trás."));
 }
 
 onAuthStateChanged(auth,user=>{
@@ -1446,8 +1557,6 @@ onAuthStateChanged(auth,user=>{
    ÁRVORE
    ========================= */
 function chooseTree(type){
-  selectedLetGoHabit="";
-  $("pickFallen")?.classList.remove("active");
   selectedTreeType=type;
   $("pickLeaf")?.classList.toggle("active",type==="leaf");
   $("pickFlower")?.classList.toggle("active",type==="flower");
@@ -1457,8 +1566,16 @@ function chooseTree(type){
       : "🌻 Agora clique em um galho para colocar sua flor";
   }
 }
-$("pickLeaf")?.addEventListener("click",()=>chooseTree("leaf"));
-$("pickFlower")?.addEventListener("click",()=>chooseTree("flower"));
+$("pickLeaf")?.addEventListener("click",(e)=>{
+  e.preventDefault();
+  e.stopPropagation();
+  chooseTree("leaf");
+});
+$("pickFlower")?.addEventListener("click",(e)=>{
+  e.preventDefault();
+  e.stopPropagation();
+  chooseTree("flower");
+});
 
 function allowedPoint(x,y){
   if(y<45 || y>600 || x<55 || x>765) return false;
@@ -1575,6 +1692,7 @@ function renderTree(){
 
 $("treeSvg")?.addEventListener("click",async e=>{
   if(adminDirectMode) return;
+  if(selectedLetGoHabit) return;
   if(!selectedTreeType){
     toast("Escolha primeiro uma folha ou uma flor.");
     return;
@@ -1982,137 +2100,6 @@ function exportMail(){
 $("exportMailBtn")?.addEventListener("click",exportMail);
 $("adminExportMailBtn")?.addEventListener("click",exportMail);
 
-
-
-/* =========================
-   DEIXE CAIR UMA FOLHA
-   ========================= */
-let selectedLetGoHabit="";
-
-
-$("pickFallen")?.addEventListener("click",()=>{
-  selectedTreeType=null;
-  $("pickLeaf")?.classList.remove("active");
-  $("pickFlower")?.classList.remove("active");
-  $("pickFallen")?.classList.add("active");
-
-  const card=$("letGoCard");
-  if(card){
-    card.classList.add("attention");
-    card.scrollIntoView({behavior:"smooth",block:"center"});
-    setTimeout(()=>card.classList.remove("attention"),2200);
-  }
-
-  const result=$("letGoResult");
-  if(result){
-    result.innerHTML='🍂 <strong>Escolha abaixo o hábito que você gostaria de deixar para trás.</strong><br><span style="font-weight:600">Depois, clique no chão aos pés da árvore para colocar sua folha caída.</span>';
-    result.classList.add("show");
-  }
-  toast("Escolha um hábito e depois clique no chão da árvore 🍂");
-});
-
-document.querySelectorAll("[data-letgo]").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    selectedLetGoHabit=btn.dataset.letgo||btn.textContent.trim();
-    document.querySelectorAll("[data-letgo]").forEach(b=>b.classList.toggle("selected",b===btn));
-    $("pickFallen")?.classList.add("active");
-    const result=$("letGoResult");
-    if(result){
-      result.innerHTML=`🍂 <strong>Você escolheu deixar ir:</strong><br>${escapeHtml(selectedLetGoHabit)}<br><span style="font-weight:600">Agora clique no chão, aos pés da árvore, para deixar sua folha.</span>`;
-      result.classList.add("show");
-    }
-    toast("Agora clique no chão da árvore 🍂");
-  });
-});
-
-function isGroundPoint(x,y){
-  return y>=525 && y<=665 && x>=105 && x<=720;
-}
-
-function renderFallenLeaves(){
-  const layer=$("decorLayer");
-  if(!layer) return;
-  layer.querySelectorAll("[data-letgo-leaf]").forEach(el=>el.remove());
-  const ns="http://www.w3.org/2000/svg";
-
-  Object.entries(letGoCache).forEach(([key,item],idx)=>{
-    if(!item) return;
-    const g=document.createElementNS(ns,"g");
-    g.setAttribute("data-letgo-leaf",key);
-    g.setAttribute("class","fallen-leaf");
-    g.setAttribute("transform",`translate(${Number(item.x)||0} ${Number(item.y)||0}) rotate(${Number(item.rotation)||0})`);
-
-    const leaf=document.createElementNS(ns,"path");
-    leaf.setAttribute("d","M-18 1 C-10 -13 9 -15 19 -3 C10 11 -8 14 -18 1 Z");
-    leaf.setAttribute("fill", item.color || "#D6A24A");
-    leaf.setAttribute("stroke","#9A6B2F");
-    leaf.setAttribute("stroke-width","1.2");
-    g.appendChild(leaf);
-
-    const vein=document.createElementNS(ns,"path");
-    vein.setAttribute("d","M-14 3 C-5 0 5 -2 15 -5");
-    vein.setAttribute("fill","none");
-    vein.setAttribute("stroke","#8A622E");
-    vein.setAttribute("stroke-width","1");
-    g.appendChild(vein);
-
-    if(isAdmin){
-      g.style.cursor="pointer";
-      g.addEventListener("click",async e=>{
-        e.stopPropagation();
-        if(confirm(`Excluir esta folha?\n\n${item.habit||""}`)){
-          try{await remove(ref(db,`${BASE}/letGo/${key}`));toast("Folha removida.");}
-          catch(err){firebaseMessage(err,"Não foi possível remover a folha.");}
-        }
-      });
-    }
-    layer.appendChild(g);
-  });
-}
-
-$("treeSvg")?.addEventListener("click",async e=>{
-  if(!selectedLetGoHabit) return;
-
-  const svg=e.currentTarget;
-  const pt=svg.createSVGPoint();
-  pt.x=e.clientX; pt.y=e.clientY;
-  const ctm=svg.getScreenCTM();
-  if(!ctm) return;
-  const loc=pt.matrixTransform(ctm.inverse());
-
-  if(!isGroundPoint(loc.x,loc.y)){
-    toast("Para esta dinâmica, clique no chão aos pés da árvore.");
-    return;
-  }
-
-  e.preventDefault();
-  e.stopImmediatePropagation();
-
-  const habit=selectedLetGoHabit;
-  selectedLetGoHabit="";
-  document.querySelectorAll("[data-letgo]").forEach(b=>b.classList.remove("selected"));
-  $("pickFallen")?.classList.remove("active");
-
-  const palette=["#D6A24A","#C8893B","#B97A42","#D9B15C","#A96D3B"];
-  try{
-    await push(ref(db,`${BASE}/letGo`),{
-      habit,
-      x:+loc.x.toFixed(1),
-      y:+loc.y.toFixed(1),
-      rotation:Math.round(Math.random()*100-50),
-      color:palette[Math.floor(Math.random()*palette.length)],
-      createdAt:serverTimestamp()
-    });
-    const result=$("letGoResult");
-    if(result){
-      result.innerHTML=`🍂 <strong>Você deixou uma folha aos pés da árvore.</strong><br><span style="font-weight:600">${escapeHtml(habit)}</span>`;
-      result.classList.add("show");
-    }
-    toast("Sua folha ficou aos pés da árvore 🍂");
-  }catch(err){
-    firebaseMessage(err,"Não foi possível colocar a folha no chão.");
-  }
-},true);
 
 
 /* =========================
